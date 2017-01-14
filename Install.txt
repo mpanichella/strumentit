@@ -1,0 +1,4 @@
+MTsyOzM7NA0KYTtiO2M7ZA0K
+
+git clone https://github.com/mpanichella/strumentit.git
+git commit -m ‘Fix conflicts’

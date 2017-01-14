@@ -1,0 +1,54 @@
+<h1>{{options.title}}</h1>
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+        <button pButton type="button" label="Encode" (click)="encode()" icon="fa-plus"></button>
+        <button pButton type="file" label="Open" icon="fa-folder-open"></button>
+        <button pButton type="button" label="Copy" (click)="exportToClipboard()" icon="fa-files-o"></button>
+        <label class="btn btn-primary btn-file">
+            Browse <input type="file" style="display: none;">
+        </label>
+        <i class="fa fa-bars"></i>
+
+        <p-splitButton label="Export" icon="fa-check" [model]="items"></p-splitButton>
+    </div>
+
+    <div class="ui-toolbar-group-right">
+        <button pButton type="button" icon="fa-search"></button>
+        <i class="fa fa-bars"></i>
+        <button pButton type="button" icon="fa-cog"></button>
+        <button pButton type="button" icon="fa-trash" (click)="clean()"></button>
+    </div>
+</p-toolbar>
+
+<div class="card" style="float:left;width: 50%;">
+    <div class="card-block">
+        <h4 class="card-title">Encode</h4>
+        <div class="input-group">
+            <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input type="file" style="display: none;" (change)="onUpload($event)" multiple
+                                              placeholder="Upload file">
+                    </span>
+            </label>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <textarea rows="10" cols="50" class="form-control" [(ngModel)]='result'></textarea>
+    </div>
+</div>
+
+
+<div class="card" style="float:left;width: 50%;">
+    <div class="card-block">
+        <h4 class="card-title">Decode</h4>
+        <div class="input-group">
+            <label class="input-group-addon">
+                Mime-Type
+            </label>
+            <input class="form-control" [(ngModel)]='encryption.mime' type="text"/>
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" (click)="decode()" type="button">Decode</button>
+              </span>
+        </div>
+        <textarea rows="10" cols="50" class="form-control" [(ngModel)]='encryption.data'></textarea>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<h1>{{options.title}}</h1>
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+        <button pButton type="button" label="Encode" (click)="encode()" icon="fa-plus"></button>
+        <button pButton type="file" label="Open" icon="fa-folder-open"></button>
+        <button pButton type="button" label="Copy" (click)="exportToClipboard()" icon="fa-files-o"></button>
+        <label class="btn btn-primary btn-file">
+            Browse <input type="file" style="display: none;">
+        </label>
+        <i class="fa fa-bars"></i>
+
+        <p-splitButton label="Export" icon="fa-check" [model]="items"></p-splitButton>
+    </div>
+
+    <div class="ui-toolbar-group-right">
+        <button pButton type="button" icon="fa-search"></button>
+        <i class="fa fa-bars"></i>
+        <button pButton type="button" icon="fa-cog"></button>
+        <button pButton type="button" icon="fa-trash" (click)="clean()"></button>
+    </div>
+</p-toolbar>
+<div class="row">
+    <div class="col-md-4 col-lg-4">
+        <textarea rows="20" cols="50" class="form-control" [(ngModel)]='encryption.data'></textarea>
+    </div>
+    <div class="col-md-8 col-lg-8">
+        <textarea rows="20" cols="50" class="form-control" [(ngModel)]='result'></textarea>
+    </div>
+</div>

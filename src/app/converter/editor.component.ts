@@ -5,8 +5,8 @@ import {ConverterService} from "./converter.service";
 
 @Component({
     selector: 'strumentit-editor',
-    templateUrl: './editor.component.html',
-    styleUrls: ['./editor.component.css']
+    templateUrl: './assets/app/converter/editor.component.html',
+    styleUrls: ['./assets/app/converter/editor.component.css']
 })
 export class EditorComponent implements OnInit {
     constructor(protected formatService: ConverterService) {

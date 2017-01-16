@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist/app",
     "module": "commonjs",
     "target": "es5",
     "removeComments": true,
@@ -9,5 +10,8 @@
   },
   "exclude": [
     "node_modules"
+  ],
+  "filesGlob": [
+    "src/**/*.ts"
   ]
 }

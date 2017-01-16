@@ -2,12 +2,11 @@ import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild, Input, Outpu
 import {MenuItem} from "primeng/components/common/api";
 import {EncryptionFile} from "./encryption.model";
 import {EncryptionService} from "./encryption.service";
-import 'rxjs/Rx';
 
 @Component({
     selector: 'strumentit-file-editor',
-    templateUrl: 'editor.file.component.html',
-    styleUrls: ['editor.file.component.css']
+    templateUrl: './assets/app/encryption/editor.file.component.html',
+    styleUrls: ['./assets/app/encryption/editor.file.component.css']
 })
 export class EditorFileComponent implements OnInit {
     constructor(protected encryptionService: EncryptionService) {

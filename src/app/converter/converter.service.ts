@@ -1,6 +1,5 @@
 import { Http, Response, Headers } from "@angular/http";
 import { Injectable } from "@angular/core";
-import 'rxjs/Rx';
 import { Observable } from "rxjs";
 import { Converter } from "./converter.model";
 import {AppSettings} from "../appSettings"

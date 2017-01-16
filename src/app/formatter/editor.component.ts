@@ -5,8 +5,8 @@ import {FormatterService} from "./formatter.service";
 
 @Component({
     selector: 'strumentit-editor',
-    templateUrl: './editor.component.html',
-    styleUrls: ['./editor.component.css']
+    templateUrl: './assets/app/formatter/editor.component.html',
+    styleUrls: ['./assets/app/formatter/editor.component.css']
 })
 export class EditorComponent implements OnInit {
     constructor(protected formatService: FormatterService) {

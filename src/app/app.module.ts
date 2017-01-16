@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent }  from './app.component';
 import { routing } from "./app.routing";
-import { SidebarModule } from 'ng-sidebar';
+//import { SidebarModule } from 'ng-sidebar';
 /*
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 */
@@ -22,7 +22,7 @@ import EncryptionModule from "./encryption/encryption.module";
                     FormsModule,
                     routing,
                     ReactiveFormsModule,
-                    SidebarModule,
+                  //  SidebarModule,
                     FormatterModule,
                     EncryptionModule,
                     MegaMenuModule

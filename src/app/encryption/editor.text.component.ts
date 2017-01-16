@@ -5,8 +5,8 @@ import {EncryptionService} from "./encryption.service";
 
 @Component({
     selector: 'strumentit-text-editor',
-    templateUrl: './editor.text.component.html',
-    styleUrls: ['./editor.text.component.css']
+    templateUrl: './assets/app/encryption/editor.text.component.html',
+    styleUrls: ['./assets/app/encryption/editor.text.component.css']
 })
 export class EditorTextComponent implements OnInit {
     constructor(protected encryptionService: EncryptionService) {

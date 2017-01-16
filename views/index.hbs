@@ -5,15 +5,18 @@
     <title>Strumentit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/stylesheet/app.css">
+    <link rel="stylesheet" href="dist/global.min.css"> <!--compiled global scss styles-->
+
 </head>
 <body>
 
     <app>Loading...</app>
 
-    <script src="/js/app/polyfills.js"></script>
-    <script src="/js/app/vendor.js"></script>
-    <script src="/js/app/app.js"></script>
+
+
+    <script src="lib/vendors.min.js"></script> <!--bundled dependencies-->
+    <script src="dist/app.min.js"></script> <!--bundled source-->
+
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,0 +1,76 @@
+{
+    "rules": {
+        "class-name": true,
+        "comment-format": [false, "check-space"], //REACTIVAR
+        "curly": true,
+        "eofline": false, //REACTIVAR
+        "forin": true,
+        "indent": [true, "spaces"],
+        "label-position": true,
+        "label-undefined": true,
+        "max-line-length": [false, 140], //REACTIVAR
+        //    "member-access": true,
+        "member-ordering": [false, //REACTIVAR
+            "public-before-private",
+            "static-before-instance",
+            "variables-before-functions"
+        ],
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-console": [true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
+        "no-construct": true,
+        "no-debugger": true,
+        "no-duplicate-key": true,
+        "no-duplicate-variable": true,
+        "no-empty": true,
+        "no-eval": true,
+        "no-inferrable-types": true,
+        "no-shadowed-variable": false, //REACTIVAR
+        "no-string-literal": false,//REACTIVAR
+        "no-switch-case-fall-through": true,
+        "no-trailing-whitespace": true,
+        "no-unused-expression": false, //REACTIVAR
+        "no-unused-variable": false, //REACTIVAR
+        "no-unreachable": true,
+        "no-use-before-declare": true,
+        "no-var-keyword": false,//REACTIVAR
+        "object-literal-sort-keys": false, //REACTIVAR
+        "one-line": [false,//REACTIVAR
+            "check-open-brace",
+            "check-catch",
+            "check-else",
+            "check-finally",
+            "check-whitespace"
+        ],
+        //    "quotemark": [true, "double", "avoid-escape"],
+        "quotemark": [true, "avoid-escape"],
+        "radix": true,
+        "semicolon": [false, "always"],//REACTIVAR
+        "trailing-comma": [false, {//REACTIVAR
+            "singleline": "never",
+            "multiline": "always"
+        }],
+        "triple-equals": [true, "allow-null-check"],
+        "typedef-whitespace": [true, {
+            "call-signature": "nospace",
+            "index-signature": "nospace",
+            "parameter": "nospace",
+            "property-declaration": "nospace",
+            "variable-declaration": "nospace"
+        }],
+        "variable-name": false,
+        "whitespace": [false, //REACTIVAR
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ]
+    }
+}

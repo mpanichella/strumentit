@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 
-import {MenuModule, MenuItem} from 'primeng/primeng';
-
-import '../../node_modules/primeng/resources/primeng.css';
+import {MenuItem} from 'primeng/primeng';
+//TODO: Revisar la hoja de estilo
+//import '../../node_modules/primeng/resources/primeng.css';
 
 
 @Component({
     selector: 'app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    templateUrl: './assets/app/app.component.html',
+    styleUrls: ['./assets/app/app.component.css']
 })
 export class AppComponent {
     private items: MenuItem[];

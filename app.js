@@ -9,7 +9,7 @@ const compression = require('compression');
 var index = require('./routes/index');
 var formatter = require('./routes/formatter');
 var converter = require('./routes/converter');
-var minify = require('./routes/minimizer');
+var minimizer = require('./routes/minimizer');
 var encryption = require('./routes/encryption');
 
 var app = express();
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/formatter', formatter);
 app.use('/converter', converter);
-app.use('/minify', minify);
+app.use('/minimizer', minimizer);
 app.use('/encryption', encryption);
 
 // catch 404 and forward to error handler

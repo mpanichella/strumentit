@@ -3,33 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent }  from './app.component';
 import { routing } from "./app.routing";
-//import { SidebarModule } from 'ng-sidebar';
-/*
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-*/
+
 
 import { ConverterComponent }  from './converter/converter.component';
-import { MinimizerComponent }  from './minimizer/minimizer.component';
 
-
-/*import {MaterialModule, MdRippleModule} from "@angular/material";*/
-import FormatterModule from "./formatter/formatter.module";
 import {MegaMenuModule} from 'primeng/primeng';
+
+import FormatterModule from "./formatter/formatter.module";
 import EncryptionModule from "./encryption/encryption.module";
+import MinimizerModule from "./minimizer/minimizer.module";
+
 
 @NgModule({
     imports:      [ BrowserModule,
                     FormsModule,
                     routing,
                     ReactiveFormsModule,
-                  //  SidebarModule,
                     FormatterModule,
                     EncryptionModule,
+                    MinimizerModule,
                     MegaMenuModule
                     ],
     declarations: [ AppComponent,
-                    ConverterComponent,
-                    MinimizerComponent
+                    ConverterComponent
                     ],
     bootstrap:    [ AppComponent ]
 })

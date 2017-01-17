@@ -14,8 +14,13 @@ var packages = {
     'app':                                { main: 'main', defaultExtension: 'js' },
     'rxjs':                               { defaultExtension: 'js' },
     'zone.js':                            { main: 'zone', defaultExtension: 'js' },
+    'primeng':                            { main: 'primeng', defaultExtension: 'js' },
     'codemirror':                         { main: 'lib/codemirror', defaultExtension: 'js' },
-    'codemirror/mode':                    { main: 'mode/javascript/javascript', defaultExtension: 'js' }
+    'codemirror/mode/javascript':         { main: 'javascript', defaultExtension: 'js' },
+    'codemirror/mode/xml':                { main: 'xml', defaultExtension: 'js' },
+    'codemirror/mode/htmlmixed':          { main: 'htmlmixed', defaultExtension: 'js' },
+    'codemirror/mode/css':                { main: 'css', defaultExtension: 'js' },
+    'ng2-codemirror':                     { main: 'lib/Codemirror', defaultExtension: 'js' }
 };
 
 var packageNames = [
@@ -35,13 +40,6 @@ var packageNames = [
 packageNames.forEach(function(pkgName) {
     packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
 });
-
-packages['primeng'] = { main: 'primeng.js', defaultExtension: 'js' };
-packages['ng2-codemirror'] = { main: 'lib/Codemirror.js', defaultExtension: 'js' };
-
-packages['codemirror_mode_xml'] = { main: 'mode/xml/xml.js', defaultExtension: 'js' };
-packages['codemirror_mode_htmlmixed'] = { main: 'mode/htmlmixed/htmlmixed.js', defaultExtension: 'js' };
-packages['codemirror_mode_css'] = { main: 'mode/css/css.js', defaultExtension: 'js' };
 
 System.config({
     map: map,

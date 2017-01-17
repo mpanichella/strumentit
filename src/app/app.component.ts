@@ -16,7 +16,7 @@ export class AppComponent {
     ngOnInit() {
         this.items = [
             {
-                label: 'Formatter', icon: 'fa-check',
+                label: 'Formatter', icon: 'fa-indent',
                 items: [
                     [
                         {
@@ -31,7 +31,22 @@ export class AppComponent {
                 ]
             },
             {
-                label: 'Converter', icon: 'fa-soccer-ball-o',
+                label: 'Minimizer', icon: 'fa-compress',
+                items: [
+                    [
+                        {
+                            label: 'Development',
+                            items: [{label: 'JavaScript', routerLink: ['minimizer', 'js']},
+                                {label: 'XML', routerLink: ['minimizer', 'xml']},
+                                {label: 'HTML', routerLink: ['minimizer', 'html']},
+                                {label: 'CSS', routerLink: ['minimizer', 'css']}
+                            ]
+                        }
+                    ]
+                ]
+            },
+            {
+                label: 'Converter', icon: 'fa-exchange',
                 items: [
                     [
                         {
@@ -48,7 +63,7 @@ export class AppComponent {
                 ]
             },
             {
-                label: 'Encryption', icon: 'fa-soccer-ball-o',
+                label: 'Encryption', icon: 'fa-lock',
                 items: [
                     [
                         {

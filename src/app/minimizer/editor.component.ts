@@ -1,24 +1,20 @@
 import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild, Input, Output} from "@angular/core";
 import {MenuItem} from "primeng/components/common/api";
-import {Formatter} from "./formatter.model";
-import {FormatterService} from "./formatter.service";
-import "codemirror/mode/javascript";
-import "codemirror/mode/xml";
-import "codemirror/mode/htmlmixed";
-import "codemirror/mode/css";
+import {Minimizer} from "./minimizer.model";
+import {MinimizerService} from "./minimizer.service";
 
 @Component({
     selector: 'strumentit-editor',
-    templateUrl: './assets/app/formatter/editor.component.html',
-    styleUrls: ['./assets/app/formatter/editor.component.css']
+    templateUrl: './assets/app/minimizer/editor.component.html',
+    styleUrls: ['./assets/app/minimizer/editor.component.css']
 })
 export class EditorComponent implements OnInit {
-    constructor(protected formatService: FormatterService) {
+    constructor(protected minimizerService: MinimizerService) {
     }
 
     items: MenuItem[];
 
-    formatter: Formatter = new Formatter("");
+    minimizer: Minimizer = new Minimizer("");
 
     config;
 
@@ -41,46 +37,6 @@ export class EditorComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        switch (this.options.formatter) {
-            case 'json':
-                this.config = {
-                    lineNumbers: true,
-                    mode: {
-                        name: 'javascript',
-                        json: true
-                    }
-                };
-
-                break;
-            case 'xml':
-
-                this.config= {
-                    mode: 'application/xml',
-                    lineNumbers: true,
-                    lineWrapping: true
-                }
-                break;
-            case 'html':
-                this.config= {
-                    mode: {
-                        name: 'htmlmixed',
-                        htmlMode:true
-                    },
-                    lineNumbers: true,
-                    lineWrapping: true
-                }
-                break;
-            case 'css':
-                this.config= {
-                    mode: "text/css",
-                    lineNumbers: true,
-                    lineWrapping: true
-                }
-                break;
-        }
-
-
         this.items = [
             {
                 label: 'To Clipboard', icon: 'fa-clipboard', command: () => {
@@ -95,25 +51,25 @@ export class EditorComponent implements OnInit {
         ];
     }
 
-    format() {
-        switch (this.options.formatter) {
-            case 'json':
-                this.formatService.formatJson(this.formatter).subscribe(
+    minimize() {
+        switch (this.options.minimizer) {
+            case 'js':
+                this.minimizerService.minimizeJs(this.minimizer).subscribe(
                     result => this.result = result.data
                 );
                 break;
             case 'xml':
-                this.formatService.formatXml(this.formatter).subscribe(
+                this.minimizerService.minimizeJs(this.minimizer).subscribe(
                     result => this.result = result.data
                 );
                 break;
             case 'html':
-                this.formatService.formatHtml(this.formatter).subscribe(
+                this.minimizerService.minimizeJs(this.minimizer).subscribe(
                     result => this.result = result.data
                 );
                 break;
             case 'css':
-                this.formatService.formatCss(this.formatter).subscribe(
+                this.minimizerService.minimizeJs(this.minimizer).subscribe(
                     result => this.result = result.data
                 );
                 break;

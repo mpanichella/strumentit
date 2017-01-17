@@ -60,7 +60,7 @@ gulp.task('bundle:js', function() {
     var builder = new sysBuilder('public', './system.config.js');
     return builder.buildStatic('app', 'public/dist/app.min.js')
         .then(function () {
-            del(['public/lib/**/*', '!public/lib/vendors.min.js']);
+            //del(['public/lib/**/*', '!public/lib/vendors.min.js']);
             return del(['public/dist/**/*', '!public/dist/app.min.js']);
         })
         .catch(function(err) {
@@ -164,7 +164,7 @@ gulp.task('tsconfig-glob', function () {
 // Watch src files for changes, then trigger recompilation
 gulp.task('watch:src', function() {
     gulp.watch('src/**/*.ts', ['scripts']);
-    gulp.watch('src/**/*.scss', ['styles']);
+    gulp.watch('src/**/*.css', ['styles']);
 });
 
 // Run Express, auto rebuild and restart on src changes

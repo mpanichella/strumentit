@@ -1,22 +1,28 @@
 var express = require('express');
 var router = express.Router();
+var xml2js = require('xml2js');
 //https://github.com/buglabs/node-xml2json
 
 router.post('/xmltojson', function (req, res, next) {
-//    var json = parser.toJson(req.body.data);
+    var json;
+    xml2js.parseString(req.body.data, function (err, result) {
+        json = result;
+    });
 
     res.status(201).json({
         message: 'Conversion complete',
-        body: ""
+        body: json
     });
 });
 
 router.post('/jsontoxml', function (req, res, next) {
-//    var json = parser.toXml(req.body.data);
+    var builder = new xml2js.Builder();
+    console.log(req.body.data);
+    var xml = builder.buildObject(JSON.parse(req.body.data));
 
     res.status(201).json({
         message: 'Conversion complete',
-        body: ""
+        body: xml
     });
 });
 

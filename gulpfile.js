@@ -103,14 +103,10 @@ gulp.task('copy:libs', function() {
 
     // concatenate non-angular2 libs, shims & systemjs-config
     gulp.src([
-        'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/bootstrap/dist/bootstrap.min.js',
         'node_modules/es6-shim/es6-shim.min.js',
-        'node_modules/es6-promise/dist/es6-promise.min.js',
         'node_modules/zone.js/dist/zone.js',
         'node_modules/reflect-metadata/Reflect.js',
-        // 'node_modules/systemjs/dist/system-polyfills.js',
-        'node_modules/systemjs/dist/system.src.js',
+        'node_modules/systemjs/dist/system.js',
         'system.config.js',
     ])
         .pipe(concat('vendors.min.js'))
@@ -203,11 +199,17 @@ var config = {
 gulp.task('upload', function () {
     return gulp.src(
         [   './**/*',
-            '!./src/**/*',
-            '!./gulpfile.js'
+            '!./{src,src/**}',
+            '!./{dist,dist/**}',
+            '!./**/*.ts',
+            '!./**/*.md',
+            '!./{logs,logs/**}',
+            '!./gulpfile.js',
+            '!./tslint.json',
+            '!./strumentit.iml'
         ]
         )
-        .pipe(changed('./dist'))
+        .pipe(changed('./dist', {hasChanged: changed.compareSha1Digest}))
         .pipe(replace('http://localhost:3000', 'http://www.strumentit.com'))
         .pipe(gulp.dest('./dist'))
         .pipe(sftp({

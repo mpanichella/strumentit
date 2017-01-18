@@ -14,7 +14,8 @@ const uglify = require('gulp-uglify');
 const tsconfig = require('tsconfig-glob');
 const sftp = require('gulp-sftp');
 const replace = require('gulp-replace');
-const GulpSSH = require('gulp-ssh')
+const GulpSSH = require('gulp-ssh');
+const changed = require('gulp-changed');
 
 const tscConfig = require('./tsconfig.json');
 
@@ -192,50 +193,58 @@ gulp.task('build', function(callback) {
     runSequence('copy', 'scripts', 'styles', callback);
 });
 
+var config = {
+    host: 'www.strumentit.com',
+    port: 22,
+    username: 'strumentit',
+    password:'Strumentit34518147*'
+}
+
 gulp.task('upload', function () {
+    return gulp.src(
+        [   './**/*',
+            '!./src/**/*',
+            '!./gulpfile.js'
+        ]
+        )
+        .pipe(changed('./dist'))
+        .pipe(replace('http://localhost:3000', 'http://www.strumentit.com'))
+        .pipe(gulp.dest('./dist'))
+        .pipe(sftp({
+            host: config.host,
+            user: config.username,
+            pass: config.password,
+            remotePath: '/opt/bitnami/apps/strumentit'
+        }));
+});
 
-  /*  var config = {
-        host: '192.168.0.21',
-        port: 22,
-        username: 'node',
-        privateKey: fs.readFileSync('/Users/zensh/.ssh/id_rsa')
-    }
+gulp.task('pm2:stop', function (callback) {
+     var gulpSSH = new GulpSSH({
+     ignoreErrors: false,
+     sshConfig: config
+     })
 
+     gulpSSH
+     .shell(['pm2 stop www'/*,'cd /opt/bitnami/apps/strumentit','rm -rf *'*/], {filePath: 'shell.log'})
+     .pipe(gulp.dest('logs'))
+
+});
+
+gulp.task('pm2:start', function (callback) {
     var gulpSSH = new GulpSSH({
         ignoreErrors: false,
         sshConfig: config
     })
 
     gulpSSH
-        .shell(['pm2 stop www', 'pm2 start www'], {filePath: 'shell.log'})
+        .shell(['pm2 start www'], {filePath: 'shell.log'})
         .pipe(gulp.dest('logs'))
-*/
-    gulp.src(['./public/**/*'])
-    .pipe(replace('http://localhost:3000', 'http://www.strumentit.com'))
-    .pipe(sftp({
-        host: 'www.strumentit.com',
-        user: 'strumentit',
-        pass: 'Strumentit34518147*',
-        remotePath: '/opt/bitnami/apps/strumentit/public'
-    }));
-
-    return gulp.src(
-        [   './**/*',
-            '!./src/**/*',
-            '!./public/**/*',
-            '!./gulpfile.js'
-        ]
-        )
-        .pipe(sftp({
-            host: 'www.strumentit.com',
-            user: 'strumentit',
-            pass: 'Strumentit34518147*',
-            remotePath: '/opt/bitnami/apps/strumentit'
-        }));
 });
 
+
+
 gulp.task('publish', function (callback) {
-    runSequence('build', 'upload', callback);
+    runSequence('build', 'pm2:stop','upload','pm2:start', callback);
 });
 
 gulp.task('default', function(callback) {
